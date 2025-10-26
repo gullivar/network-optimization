@@ -1,0 +1,16 @@
+services:
+  edu-api:
+    build: ./edu-api
+    ports:
+      - "8000:8000"
+    networks:
+      backend-net:
+        ipv4_address: 172.16.239.10
+
+networks:
+  backend-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.239.0/24"
